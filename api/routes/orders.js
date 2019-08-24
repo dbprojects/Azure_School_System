@@ -9,9 +9,15 @@ router.get('/', (req,res,next)=> {
 
 //status code 201 to indicate the post is successful
 router.post('/', (req,res,next)=> {
+    //TODO: doc
+    const order = {
+        productId: req.body.productId,
+        quantity:req.body.quantity
+    };
+
     res.status(201).json({
         message: 'Order was created',
-        orderId:req.params.orderId
+        order:order
     });
 });
 
