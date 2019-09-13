@@ -9,6 +9,11 @@
 - Clone the repo - git clone https://github.com/dbprojects/Azure_School_System.git
 - npm start
 
+
+# Git - You can't push to remote repo without these two below
+git config --global user.name DB Patil
+git config --global user.email dbprojects@gmail.com
+
 # VSD setup
 
 - Download the latest version
@@ -17,8 +22,18 @@
 - npm commands for VS code
 - npm Intellisense
 - ES Lint
-- 
-# Dev commands for node js
+- Code Spell Checker!
+- Auto Close Tag
+- Path Intellisense
+- Markdownlint
+
+# MySQL
+
+Need to change the password using the below SQL
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
+
+
+## Dev commands for node js
 
 
 npm install --save-dev eslint
@@ -34,3 +49,5 @@ sequelize init
 
 sequelize model:create --name Users --attributes "dn:string, registerType:string, profileType:string, language_id:integer,field1:string, field2:string, field3:string, setcurr:string, lastorder:date,lastsession:date,registrationCancelDt:date, prevLastSession:date,personalizationId:string"
 
+# Run migration 
+npx sequelize-cli db:migrate
