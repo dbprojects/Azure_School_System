@@ -1,51 +1,53 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('UserReg', {
       userId: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Users',
+          key: 'userId',
+          as: 'userId'
+        }
+      },
+      status: {
         type: Sequelize.INTEGER
       },
-      dn: {
+      policyAcctId: {
         type: Sequelize.STRING
       },
-      registerType: {
+      logonId: {
         type: Sequelize.STRING
       },
-      profileType: {
+      logonPassword: {
         type: Sequelize.STRING
       },
-      languageId: {
+      passwordExpired: {
         type: Sequelize.INTEGER
       },
-      field1: {
+      challengeQuestion: {
         type: Sequelize.STRING
       },
-      field2: {
+      challengeAnswer: {
         type: Sequelize.STRING
       },
-      field3: {
+      timeout: {
+        type: Sequelize.INTEGER
+      },
+      passwordRetries: {
+        type: Sequelize.INTEGER
+      },
+      salt: {
         type: Sequelize.STRING
       },
-      setcurr: {
-        type: Sequelize.STRING
-      },
-      lastorder: {
+      passwordCreation: {
         type: Sequelize.DATE
       },
-      lastsession: {
+      passwordInvalid: {
         type: Sequelize.DATE
-      },
-      registrationCancelDt: {
-        type: Sequelize.DATE
-      },
-      prevLastSession: {
-        type: Sequelize.DATE
-      },
-      personalizationId: {
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -58,6 +60,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('UserRegs');
   }
 };

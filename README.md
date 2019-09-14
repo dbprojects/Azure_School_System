@@ -47,7 +47,11 @@ npm install -g sequelize-cli
 sequelize init
 
 
+https://mherman.org/blog/node-postgres-sequelize/
+
 sequelize model:create --name Users --attributes "dn:string, registerType:string, profileType:string, language_id:integer,field1:string, field2:string, field3:string, setcurr:string, lastorder:date,lastsession:date,registrationCancelDt:date, prevLastSession:date,personalizationId:string"
+
+sequelize model:create --name UserReg --attributes "status:integer, policyAcctId:string, logonId:string, logonPassword:string,passwordExpired:integer, challengeQuestion:string, challengeAnswer:string, timeout:integer, passwordRetries:integer,salt:string,passwordCreation:date, passwordInvalid:date"
 
 # Run migration 
 npx sequelize-cli db:migrate
